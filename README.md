@@ -35,8 +35,8 @@ O projeto foi estruturado com foco em separação de responsabilidades, manuteni
 
 1.  **Clone este repositório:**
     ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
-    cd desafio-betalent
+    git clone https://github.com/pbt35/betalent
+    cd betalent
     ```
 
 2.  **Instale as dependências do front-end:**
@@ -45,17 +45,17 @@ O projeto foi estruturado com foco em separação de responsabilidades, manuteni
     ```
 
 3.  **Configure e inicie a API simulada:**
-    * Clone o repositório do desafio: `git clone https://github.com/BeMobile/desafio-front-end`
+    * Clone o repositório do desafio: `git clone https://github.com/pbt35/betalent`
     * Navegue até o diretório e inicie o `json-server`:
     ```bash
-    cd desafio-front-end
+    cd betalent
     json-server --watch db.json
     ```
     * A API estará rodando em `http://localhost:3000`.
 
 4.  **Inicie a aplicação React:**
     ```bash
-    # No diretório 'desafio-betalent'
+    # No diretório 'betalent'
     yarn start
     ```
 
