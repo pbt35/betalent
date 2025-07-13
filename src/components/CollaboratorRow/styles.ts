@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Row = styled.tr<{ isExpanded: boolean }>`
   border-bottom: 1px solid #E5E7EB;
   color: #1c1c1c;
+  background-color: #FFFFFF;
   &:last-child { border-bottom: none; 
   }
 `;
@@ -45,6 +46,7 @@ export const MobileOnly = styled.div`
 export const DesktopOnly = styled.div`
   display: table-cell; 
   text-align: center;
+  background-color: #FFFFFF;
 `;
 
 export const Cell = styled.td`
@@ -55,6 +57,7 @@ export const Cell = styled.td`
   vertical-align: middle;
   font-size: 14px;
   color: #1c1c1c;
+  background-color: #FFFFFF;
 
   @media (max-width: 768px) {
     padding: 0; 
@@ -76,7 +79,7 @@ export const Cell = styled.td`
 
 export const DetailsWrapper = styled.div<{ isExpanded: boolean }>`
   display: none; 
-
+  background-color: #FFFFFF;
   @media (max-width: 768px) {
     display: block;
     overflow: hidden;

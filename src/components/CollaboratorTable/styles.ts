@@ -15,6 +15,7 @@ export const Table = styled.table`
 
 export const TableHead = styled.thead`
   background-color: #2563EB; 
+  border: 1px solid #2563EB;
   color: #FFFFFF;
 `;
 
@@ -25,6 +26,7 @@ export const TableHeaderCell = styled.th<{ hideOnMobile?: boolean }>`
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-align: center;
+  border: 1px solid #2563EB;
 
    @media (max-width: 768px) {
     display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'table-cell')};
