@@ -1,6 +1,6 @@
 import React from 'react';
 import { ICollaborator } from '../../types/collaborator';
-import { Table, TableHead, TableHeaderCell, TableWrapper } from './styles';
+import { MobileMoreCell, Table, TableHead, TableHeaderCell, TableWrapper } from './styles';
 import { CollaboratorRow } from '../CollaboratorRow';
 
 interface CollaboratorTableProps {
@@ -18,10 +18,11 @@ export const CollaboratorTable: React.FC<CollaboratorTableProps> = ({ collaborat
         <TableHead>
           <tr>
             <TableHeaderCell>Foto</TableHeaderCell>
-            <TableHeaderCell>Nome</TableHeaderCell>
+            <TableHeaderCell>Nome <MobileMoreCell>&bull;</MobileMoreCell></TableHeaderCell>
             <TableHeaderCell hideOnMobile>Cargo</TableHeaderCell>
             <TableHeaderCell hideOnMobile>Data de Admissão</TableHeaderCell>
             <TableHeaderCell hideOnMobile>Telefone</TableHeaderCell>
+            
           </tr>
         </TableHead>
         <tbody>

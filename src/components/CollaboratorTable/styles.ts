@@ -24,11 +24,15 @@ export const TableHeaderCell = styled.th<{ hideOnMobile?: boolean }>`
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  text-align: left;
+  text-align: center;
 
-  @media (max-width: 768px) {
-    display: ${props => props.hideOnMobile ? 'none' : 'table-cell'};
-  }
+   @media (max-width: 768px) {
+    display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'table-cell')};
+
+    &:nth-child(2) {
+      text-align: left;
+      position: relative;
+    }
 `;
 
 export const MobileMoreCell = styled.th`
@@ -36,10 +40,9 @@ export const MobileMoreCell = styled.th`
   
   @media (max-width: 768px) {
     display: table-cell;
-    width: 1%;
-    text-align: right;
-    padding-right: 16px;
+    position: absolute;
     font-size: 24px;
-    line-height: 0;
+    right: 25px;
+    top: 10px;
   }
 `;

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ICollaborator } from '../../types/collaborator';
 import { formatDate, formatPhone } from '../../utils/formatters';
 import { Row, Cell, Avatar, MobileOnly, DesktopOnly, DetailsWrapper, NameHeader } from './styles';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import fallbackAvatar from '../../assets/user.png'; 
+import { Icon } from '../Icons';
 
 interface ChevronIconProps {
   isExpanded: boolean;
@@ -10,13 +12,9 @@ interface ChevronIconProps {
 
 const ChevronIcon: React.FC<ChevronIconProps> = ({ isExpanded }) => {
   return isExpanded ? (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12.25 10.25L8 5.75L3.75 10.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
+    <Icon name="chevronDown" />
   ) : (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3.75 5.75L8 10.25L12.25 5.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
+    <Icon name="chevronUp" />
   );
 };
 
@@ -28,6 +26,16 @@ interface CollaboratorRowProps {
 export const CollaboratorRow: React.FC<CollaboratorRowProps> = ({ collaborator }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const [imgSrc, setImgSrc] = useState(collaborator.image);
+
+  const handleImageError = () => {
+    setImgSrc(fallbackAvatar);
+  };
+  
+  useEffect(() => {
+    setImgSrc(collaborator.image);
+  }, [collaborator.image]);
+
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
@@ -37,7 +45,11 @@ const isDesktop = useMediaQuery('(min-width: 769px)');
  return (
     <Row onClick={handleToggleExpand} isExpanded={isExpanded}>
       <Cell>
-        <Avatar src={collaborator.image} alt={collaborator.name} />
+        <Avatar 
+          src={imgSrc} 
+          onError={handleImageError} 
+          alt={collaborator.name} 
+        />      
       </Cell>
 
       <Cell style={{display: 'table-cell'}}>
