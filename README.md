@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Desafio Front-end BeTalent
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma solução para o teste técnico de front-end da BeTalent. A aplicação consiste em uma interface responsiva que exibe uma tabela de colaboradores, consome dados de uma API simulada e permite a busca dinâmica pelos registros.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+-   **Visualização de Colaboradores**: Exibição dos dados em formato de tabela.
+-   **Busca Dinâmica**: Filtro em tempo real por Nome, Cargo e Telefone.
+-   **Formatação de Dados**: Datas e telefones são formatados no front-end para melhor legibilidade.
+-   **Responsividade**: O layout se adapta a dispositivos desktop e mobile (requer implementação de CSS).
+-   **Feedback de UI**: Exibe estados de carregamento (loading) e erro.
 
-### `npm start`
+## 🛠️ Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   **React.js (v18+)**
+-   **TypeScript**
+-   **CSS Modules** (Recomendado para estilização)
+-   **json-server** (Para a API mock)
+-   **Yarn** (Gerenciador de pacotes)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🏛️ Arquitetura e Decisões de Projeto
 
-### `npm test`
+O projeto foi estruturado com foco em separação de responsabilidades, manutenibilidade e escalabilidade.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   **Estrutura de Pastas**: A organização `src` separa `api`, `components`, `hooks`, `pages`, `types` e `utils`, tornando a navegação e manutenção do código mais intuitivas.
+-   **Hook Customizado (`useCollaborators`)**: Toda a lógica de estado, busca de dados, filtro e tratamento de erros foi encapsulada neste hook. Isso limpa os componentes de UI, tornando-os mais simples e focados na apresentação, além de facilitar testes unitários da lógica de negócio.
+-   **Performance**: O `useMemo` é utilizado para otimizar a filtragem, garantindo que a lista de colaboradores seja recalculada apenas quando necessário.
+-   **Tipagem Forte**: O uso de TypeScript desde o início garante segurança de tipo, previne bugs comuns e melhora a experiência de desenvolvimento com autocompletar e clareza nas interfaces dos componentes.
 
-### `npm run build`
+## 🚀 Como Executar o Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Pré-requisitos:**
+* Node.js (v16 ou superior)
+* Yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Clone este repositório:**
+    ```bash
+    git clone [URL_DO_SEU_REPOSITORIO]
+    cd desafio-betalent
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.  **Instale as dependências do front-end:**
+    ```bash
+    yarn install
+    ```
 
-### `npm run eject`
+3.  **Configure e inicie a API simulada:**
+    * Clone o repositório do desafio: `git clone https://github.com/BeMobile/desafio-front-end`
+    * Navegue até o diretório e inicie o `json-server`:
+    ```bash
+    cd desafio-front-end
+    json-server --watch db.json
+    ```
+    * A API estará rodando em `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4.  **Inicie a aplicação React:**
+    ```bash
+    # No diretório 'desafio-betalent'
+    yarn start
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+5.  Abra seu navegador e acesse `http://localhost:3001` (ou a porta que o React indicar).
