@@ -4,10 +4,6 @@ export type IconName =
   | 'search' 
   | 'chevronDown' 
   | 'chevronUp' 
-  | 'user' 
-  | 'phone' 
-  | 'calendar' 
-  | 'job';
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
   name: IconName;

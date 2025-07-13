@@ -18,7 +18,6 @@ const ChevronIcon: React.FC<ChevronIconProps> = ({ isExpanded }) => {
   );
 };
 
-
 interface CollaboratorRowProps {
   collaborator: ICollaborator;
 }
@@ -68,10 +67,10 @@ const isDesktop = useMediaQuery('(min-width: 769px)');
       </Cell>
 
       {isDesktop && (
-        <>
+      <>
         <DesktopOnly as="td" data-label="Cargo">{collaborator.job}</DesktopOnly>
-      <DesktopOnly as="td" data-label="Data de Admissão">{formatDate(collaborator.admission_date)}</DesktopOnly>
-      <DesktopOnly as="td" data-label="Telefone">{formatPhone(collaborator.phone)}</DesktopOnly>
+        <DesktopOnly as="td" data-label="Data de Admissão">{formatDate(collaborator.admission_date)}</DesktopOnly>
+        <DesktopOnly as="td" data-label="Telefone">{formatPhone(collaborator.phone)}</DesktopOnly>
       </>
       )}
     </Row>

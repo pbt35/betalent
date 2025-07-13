@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Row = styled.tr<{ isExpanded: boolean }>`
   border-bottom: 1px solid #E5E7EB;
   color: #1c1c1c;
